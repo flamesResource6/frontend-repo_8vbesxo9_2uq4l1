@@ -80,4 +80,20 @@
   }
   .animate-ribbon1 { animation: ribbon1 22s ease-in-out infinite; }
   .animate-ribbon2 { animation: ribbon2 28s ease-in-out infinite; }
+
+  /* Aurora drift */
+  @keyframes aurora {
+    0% { transform: translate3d(-3%, -1%, 0) rotate(-1deg); }
+    50% { transform: translate3d(3%, 1%, 0) rotate(1deg); }
+    100% { transform: translate3d(-3%, -1%, 0) rotate(-1deg); }
+  }
+  .animate-aurora { animation: aurora 24s ease-in-out infinite; }
+  .animate-aurora-rev { animation: aurora 32s ease-in-out reverse infinite; }
+
+  /* Twinkling particles */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: translateY(0) scale(1); }
+    50% { opacity: 0.75; transform: translateY(-4px) scale(1.15); }
+  }
+  .animate-twinkle { animation: twinkle var(--twinkle-dur, 6s) ease-in-out var(--twinkle-delay, 0s) infinite; }
 }
