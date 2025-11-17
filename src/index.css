@@ -45,55 +45,25 @@
     --tw-exit-translate-y: initial;
   }
 
-  /* Background animation keyframes */
-  @keyframes orb {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    50% { transform: translate3d(20px, -10px, 0) scale(1.05); }
+  /* 3D stage animations */
+  @keyframes ring-spin {
+    0% { transform: rotateX(75deg) translateZ(var(--ring-z)) rotateZ(0deg); }
+    50% { transform: rotateX(75deg) translateZ(var(--ring-z)) rotateZ(180deg); }
+    100% { transform: rotateX(75deg) translateZ(var(--ring-z)) rotateZ(360deg); }
   }
-  .animate-orb { animation: orb 12s ease-in-out infinite; }
-  .animate-orb-delayed { animation: orb 16s ease-in-out 1.2s infinite; }
-  .animate-orb-alt { animation: orb 18s ease-in-out 0.8s infinite; }
+  .animate-ring-spin { animation: ring-spin 14s linear infinite; }
 
-  @keyframes beams {
-    0% { transform: translateX(-2%) rotate(-1deg); }
-    50% { transform: translateX(2%) rotate(1deg); }
-    100% { transform: translateX(-2%) rotate(-1deg); }
+  @keyframes float-z {
+    0% { transform: translateZ(0) translateY(0) rotateY(0deg); }
+    50% { transform: translateZ(60px) translateY(-8px) rotateY(18deg); }
+    100% { transform: translateZ(0) translateY(0) rotateY(0deg); }
   }
-  .animate-beams { animation: beams 18s ease-in-out infinite; }
-  .animate-beams-rev { animation: beams 26s ease-in-out reverse infinite; }
+  .animate-float-z { animation: float-z 16s ease-in-out infinite; }
 
-  @keyframes lines {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  @keyframes rise-bottom {
+    0% { bottom: -6%; opacity: 0; }
+    15% { opacity: 0.9; }
+    100% { bottom: 108%; opacity: 0; }
   }
-  .animate-lines { animation: lines 28s linear infinite; }
-
-  @keyframes ribbon1 {
-    0% { transform: translateX(0px) translateY(0px); }
-    50% { transform: translateX(20px) translateY(-10px); }
-    100% { transform: translateX(0px) translateY(0px); }
-  }
-  @keyframes ribbon2 {
-    0% { transform: translateX(0px) translateY(0px); }
-    50% { transform: translateX(-15px) translateY(10px); }
-    100% { transform: translateX(0px) translateY(0px); }
-  }
-  .animate-ribbon1 { animation: ribbon1 22s ease-in-out infinite; }
-  .animate-ribbon2 { animation: ribbon2 28s ease-in-out infinite; }
-
-  /* Aurora drift */
-  @keyframes aurora {
-    0% { transform: translate3d(-3%, -1%, 0) rotate(-1deg); }
-    50% { transform: translate3d(3%, 1%, 0) rotate(1deg); }
-    100% { transform: translate3d(-3%, -1%, 0) rotate(-1deg); }
-  }
-  .animate-aurora { animation: aurora 24s ease-in-out infinite; }
-  .animate-aurora-rev { animation: aurora 32s ease-in-out reverse infinite; }
-
-  /* Twinkling particles */
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.15; transform: translateY(0) scale(1); }
-    50% { opacity: 0.75; transform: translateY(-4px) scale(1.15); }
-  }
-  .animate-twinkle { animation: twinkle var(--twinkle-dur, 6s) ease-in-out var(--twinkle-delay, 0s) infinite; }
+  .animate-rise-bottom { animation: rise-bottom var(--rise-dur, 8s) linear var(--rise-delay, 0s) infinite; }
 }
