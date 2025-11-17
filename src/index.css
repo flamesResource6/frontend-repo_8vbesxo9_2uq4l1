@@ -15,10 +15,11 @@
   html {
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #000;
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-black;
   }
 }
 
@@ -43,4 +44,40 @@
     --tw-exit-translate-x: initial;
     --tw-exit-translate-y: initial;
   }
+
+  /* Background animation keyframes */
+  @keyframes orb {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(20px, -10px, 0) scale(1.05); }
+  }
+  .animate-orb { animation: orb 12s ease-in-out infinite; }
+  .animate-orb-delayed { animation: orb 16s ease-in-out 1.2s infinite; }
+  .animate-orb-alt { animation: orb 18s ease-in-out 0.8s infinite; }
+
+  @keyframes beams {
+    0% { transform: translateX(-2%) rotate(-1deg); }
+    50% { transform: translateX(2%) rotate(1deg); }
+    100% { transform: translateX(-2%) rotate(-1deg); }
+  }
+  .animate-beams { animation: beams 18s ease-in-out infinite; }
+  .animate-beams-rev { animation: beams 26s ease-in-out reverse infinite; }
+
+  @keyframes lines {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-lines { animation: lines 28s linear infinite; }
+
+  @keyframes ribbon1 {
+    0% { transform: translateX(0px) translateY(0px); }
+    50% { transform: translateX(20px) translateY(-10px); }
+    100% { transform: translateX(0px) translateY(0px); }
+  }
+  @keyframes ribbon2 {
+    0% { transform: translateX(0px) translateY(0px); }
+    50% { transform: translateX(-15px) translateY(10px); }
+    100% { transform: translateX(0px) translateY(0px); }
+  }
+  .animate-ribbon1 { animation: ribbon1 22s ease-in-out infinite; }
+  .animate-ribbon2 { animation: ribbon2 28s ease-in-out infinite; }
 }
